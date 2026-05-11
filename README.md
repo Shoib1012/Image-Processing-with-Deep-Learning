@@ -2,52 +2,54 @@
 
 ## Overview
 
-This repository contains coursework materials for **COMP0169: Learning Learning, From Scratch** at University College London. It covers fundamental computer vision and deep learning concepts through a series of practical exercises, implemented from scratch using NumPy and Matplotlib.
+This repository contains coursework materials for **COMP0169: Learning Learning, From Scratch** at University College London. The main deliverable is the notebook [VC_DL.ipynb](VC_DL.ipynb), which walks through a set of image processing and deep learning exercises using the course-provided datasets and the libraries listed in the notebook itself.
 
 **Course Team:**
-- Lecturers: Niloy J. Mitra & Tobias Ritschel
-- Teaching Assistants: Remy Sabathier, Niladri Shekhar Dutt & Binglun Wang
+- Lecturers: Niloy J. Mitra and Tobias Ritschel
+- Teaching Assistants: Remy Sabathier, Niladri Shekhar Dutt, and Binglun Wang
 
-## Contents
+## Coursework Structure
 
-This coursework consists of 4 main exercises totaling **100 points**:
+The notebook contains 5 questions totaling **100 points**:
 
-### 1. **Linear Fitting (10 points)**
-   - Implementing linear regression from scratch
-   - Working with the IRIS dataset
+### 1. Linear Fitting (10 points)
+- Fit a linear model from scratch
+- Work with the IRIS dataset
 
-### 2. **Image Retrieval (15 points)**
-   - Building image retrieval systems
-   - Feature extraction and matching
+### 2. Image Retrieval (15 points)
+- Build a simple image retrieval pipeline
+- Compare feature-based similarity scores
 
-### 3. **Image Denoising (30 points)**
-   - Implementing denoising algorithms
-   - Working with the NoisyOCR dataset
-   - Restoration techniques
+### 3. Image Denoising (30 points)
+- Implement a denoising CNN in PyTorch
+- Train and evaluate on the NoisyOCR data
 
-### 4. **Neural Implicit Representation (30 points)**
-   - Understanding implicit neural representations
-   - Building neural networks from scratch
-   - Advanced deep learning concepts
+### 4. Texture Synthesis (15 points)
+- Build a texture synthesis objective
+- Optimize an input image to match target statistics
+
+### 5. Implicit Neural Representation (30 points)
+- Model images and video frames with coordinate-based neural networks
+- Evaluate reconstruction quality and frame accuracy
 
 ## Datasets
 
-The project uses the following datasets:
+The notebook uses the following datasets:
 
-- **IRIS**: Classic dataset with 4 features (sepal/petal measurements) and 3 classes
-- **MNIST**: Handwritten digits dataset (28×28 grayscale images)
-- **CelebA**: Large-scale face attributes dataset
-- **NoisyOCR**: OCR images with noise and corresponding clean targets
+- IRIS: classic tabular dataset used for linear fitting
+- MNIST: handwritten digits dataset
+- CelebA: face image dataset used for retrieval and style/texture tasks
+- NoisyOCR: noisy OCR scans paired with clean targets
 
-### Dataset Download
+IRIS and MNIST are downloaded in the notebook through `sklearn.datasets`.
 
-For CelebA and NoisyOCR datasets, download from:
-```
+CelebA and NoisyOCR are distributed in a separate archive:
+
 https://geometry.cs.ucl.ac.uk/mlvc/cw_datasets.zip
-```
 
-Extract the zip file into the same directory as the notebook:
-```
+Extract it so that `cw_datasets/` sits next to the notebook:
+
+```text
 Image-Processing-with-Deep-Learning/
 ├── VC_DL.ipynb
 └── cw_datasets/
@@ -57,87 +59,44 @@ Image-Processing-with-Deep-Learning/
 
 ## Requirements
 
+Use the packages listed in the notebook’s package cell. The imported stack currently includes:
+
 - Python 3.7+
 - NumPy
 - Matplotlib
-- scikit-dataset (for downloading IRIS and MNIST)
-
-**Note:** Only NumPy and Matplotlib are allowed for implementations unless otherwise specified.
+- SciPy
+- scikit-learn
+- PyTorch
+- torchvision
+- Pillow
+- imageio
+- OpenCV
+- scikit-image
+- tqdm
 
 ## Usage
 
-1. **Local Setup:**
-   ```bash
-   jupyter notebook VC_DL.ipynb
-   ```
+1. Open [VC_DL.ipynb](VC_DL.ipynb) in Jupyter or VS Code.
+2. Or open the notebook directly in Google Colab using the badge at the top of the notebook.
+3. Make sure `cw_datasets/` is available before running the later notebook sections.
 
-2. **Google Colab:**
-   Open directly with the provided Colab badge in the notebook
+## Submission
 
-3. **Offline Mode:**
-   - Download datasets while connected to the internet
-   - Save as `.npy` files
-   - Load locally for offline work
+Submit a zipped folder containing:
 
-## Submission Requirements
+1. [VC_DL.ipynb](VC_DL.ipynb), with all required code and written answers completed inside the designated solution blocks.
+2. A `models/` folder containing any trained weights requested by the notebook.
 
-Submissions must include:
+## Implementation Notes
 
-1. **VC_DL.ipynb** - Jupyter notebook with:
-   - All code implementations within `#begin_solution ... #end_solution` blocks
-   - Written answers in markdown cells marked "_Your reply_:"
-   
-2. **models/** folder - Containing trained model weights
-
-## Implementation Guidelines
-
-- ✏️ Cells marked with a pencil icon (✎) require modifications
-- Code changes outside `#begin_solution` blocks will not be evaluated
-- Do not modify `#begin_test` blocks (reserved for TAs)
-- Avoid hard-coded solutions - code must work with different dataset dimensions
-- Write generalizable code that works with varying sample counts and feature dimensions
-
-## Important Notes
-
-- All exercises must be implemented from scratch
-- Only the libraries listed in the packages cell are allowed
-- Solutions must be robust across different dataset sizes
-- Evaluation will be tested on hidden datasets with potentially different dimensions
-
-## File Structure
-
-```
-Image-Processing-with-Deep-Learning/
-├── README.md              # This file
-├── VC_DL.ipynb           # Main coursework notebook
-└── cw_datasets/          # Extracted datasets (after download)
-    ├── CelebA/
-    └── NoisyOCR/
-```
-
-## Quick Start
-
-1. Clone or download this repository
-2. Download the datasets from the link above
-3. Extract datasets into the same directory as the notebook
-4. Open `VC_DL.ipynb` in Jupyter or Google Colab
-5. Follow the instructions in each cell and complete the exercises
-
-## Grading
-
-- **Linear Fitting:** 10 points
-- **Image Retrieval:** 15 points
-- **Image Denoising:** 30 points
-- **Neural Implicit Representation:** 30 points
-- **Total:** 100 points
+- Only edit cells marked with the pencil icon.
+- Write code only inside `#begin_solution ... #end_solution` blocks.
+- Do not change `#begin_test ... #end_test` blocks.
+- Keep solutions general so they work on hidden data with different shapes or sample counts.
+- Follow the notebook’s package restrictions when adding imports.
 
 ## Support
 
-For questions or issues:
-- Refer to the Moodle submission page for deadlines
-- Contact the teaching assistants
-- Check inline comments in the notebook for guidance
-
----
+For deadlines and submission guidance, refer to Moodle and the teaching team.
 
 **Last Updated:** May 2026
